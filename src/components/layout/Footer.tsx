@@ -57,11 +57,11 @@ const Footer = () => {
 
           {/* Social Links */}
           <div className="flex justify-end">
-            <div className="space-y-3">
+            <div className="space-y-4">
               <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                 Connect With Me
               </h4>
-              <div className="flex space-x-4">
+              <div className="flex space-x-6">
                 <a
                   href="https://github.com/AbdulRaheem-CS"
                   target="_blank"
@@ -79,15 +79,6 @@ const Footer = () => {
                   aria-label="LinkedIn"
                 >
                   <FaLinkedin className="text-xl" />
-                </a>
-                <a
-                  href="https://twitter.com/yourusername"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-purple-400 transition duration-300"
-                  aria-label="Twitter"
-                >
-                  <FaTwitter className="text-xl" />
                 </a>
                 <a
                   href="abdulraheem123124@gmail.com"

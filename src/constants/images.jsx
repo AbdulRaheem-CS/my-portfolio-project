@@ -5,6 +5,10 @@ export const IMAGES = {
   taskmgmt: '/images/taskproject.png',
   ecommerce: '/images/ecommerceproject.png',
   portfolio: '/images/portfolioproject.png',
+  multivendor: '/images/multivendor.png',
+  splitpayment: '/images/splitpay.png',
+  zettasynk: '/images/zettasynk.png',
+  corereputation: '/images/corereputation.png',
   // other images...
 };
 

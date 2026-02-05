@@ -22,30 +22,36 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Platform",
-      description: "Full-stack e-commerce solution with payment integration.",
-      image: IMAGES.ecommerce, 
+      title: "E-commerce Platform Admin panel",
+      description: "Admin panel for managing products, orders, users and many more",
+      image: IMAGES.multivendor,
       github: "#",
-      live: "#"
+      live: "https://multi-vendor-eight.vercel.app/dashboard"
     },
     {
       id: 2,
-      title: "Task Management App",
-      description: "Productivity application with real-time updates.",
-      image: IMAGES.taskmgmt,
-      github: "#",
-      live: "#"
+      title: "Splitpay- A Fintech web application",
+      description: "Fintech web application for splitting payments into multiple cards.",
+      image: IMAGES.splitpayment,
+      live: "https://www.dividepay.ai/"
     },
     {
       id: 3,
-      title: "Portfolio Website",
-      description: "Modern portfolio with responsive design.",
-      image: IMAGES.portfolio,
-      github: "#",
-      live: "#"
+      title: "ZettaSynk",
+      description: "A Full Stack Ai Intelligent system for managing large business and companies",
+      image: IMAGES.zettasynk,
+      live: "https://www.zettasynk.online"
 
       
+    },
+    {
+      id: 4,
+      title: "Corereputation",
+      description: "A platform for managing and improving online reputation.",
+      image: IMAGES.corereputation,
+      live: "https://corereputation.com/"
     }
+
   ];
 
   return (
@@ -80,7 +86,7 @@ const Projects = () => {
           whileInView="visible"
           viewport={{ once: true }}
           variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6"
         >
           {projects.map((project) => (
             <motion.div
