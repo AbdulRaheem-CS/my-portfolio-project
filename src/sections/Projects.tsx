@@ -25,21 +25,6 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "E-commerce Platform Admin panel",
-      description: "Admin panel for managing products, orders, users and many more",
-      image: IMAGES.multivendor,
-      github: "#",
-      live: "https://multi-vendor-eight.vercel.app/dashboard"
-    },
-    {
-      id: 2,
-      title: "Splitpay- A Fintech web application",
-      description: "Fintech web application for splitting payments into multiple cards.",
-      image: IMAGES.splitpayment,
-      live: "https://www.dividepay.ai/"
-    },
-    {
-      id: 3,
       title: "ZettaSynk",
       description: "A Full Stack Ai Intelligent system for managing large business and companies",
       image: IMAGES.zettasynk,
@@ -48,11 +33,48 @@ const Projects = () => {
 
     },
     {
-      id: 4,
+      id: 2,
+      title: "E-commerce Platform Admin panel",
+      description: "Admin panel for managing products, orders, users and many more",
+      image: IMAGES.multivendor,
+      github: "#",
+      live: "https://multi-vendor-eight.vercel.app/dashboard"
+    },
+    {
+      id: 3,
       title: "Corereputation",
       description: "A platform for managing and improving online reputation.",
       image: IMAGES.corereputation,
       live: "https://corereputation.com/"
+    },
+    {
+      id: 4,
+      title: "Splitpay- A Fintech web application",
+      description: "Fintech web application for splitting payments into multiple cards.",
+      image: IMAGES.splitpayment,
+      live: "https://www.dividepay.ai/"
+    },
+    
+    {
+      id: 5,
+      title: "TalentIQ",
+      description: "The operating system for enterprise talent teams",
+      image: IMAGES.talentiq,
+      live: "https://talent-iq-ashy.vercel.app/"
+    },
+    {
+      id: 6,
+      title: "KM Jewelers",
+      description: "A jewelery Shop Crafting timeless elegance since generations.",
+      image: IMAGES.kmjewelers,
+      live: "https://khalid-mumtaz-jewelers.vercel.app/"
+    },
+    {
+      id: 7,
+      title: "Batch Systems",
+      description: "Turn products into experience-driven gateways",
+      image: IMAGES.batch,
+      live: "https://batch-website-fixed.vercel.app/landing_page"
     }
 
   ];

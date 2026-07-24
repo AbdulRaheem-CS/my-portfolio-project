@@ -3,7 +3,7 @@ import type { MouseEvent } from 'react';
 import Image from 'next/image';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { IMAGES } from '../constants/images';
-import SplitText from '@/components/ui/SplitText';
+import Typewriter from '@/components/ui/Typewriter';
 import MagneticButton from '@/components/ui/MagneticButton';
 
 const Hero = () => {
@@ -90,8 +90,12 @@ const Hero = () => {
             transition={{ duration: 1, ease: 'easeOut' }}
             className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
           >
-            <SplitText as="span" text="Crafting Digital" mode="word" className="block" delay={0.25} />
-            <SplitText as="span" text="Experiences" mode="word" className="block text-gradient" delay={0.55} />
+            <Typewriter
+              lines={[
+                { text: 'Crafting Digital' },
+                { text: 'Experiences', className: 'text-gradient' },
+              ]}
+            />
           </motion.h1>
 
           <motion.p
