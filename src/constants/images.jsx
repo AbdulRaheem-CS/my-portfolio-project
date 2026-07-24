@@ -1,6 +1,7 @@
 // constants/images.js
 export const IMAGES = {
-  hero: '/images/hero.jpg',
+  herosection: '/images/hero-section.jpg',
+  heros: '/images/hero.jpg',
   profile: '/images/myprofile.jpg',
   taskmgmt: '/images/taskproject.png',
   ecommerce: '/images/ecommerceproject.png',

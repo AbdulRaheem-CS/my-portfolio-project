@@ -1,7 +1,12 @@
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
 import { SiLeetcode } from 'react-icons/si';
+import SplitText from '@/components/ui/SplitText';
+import MagneticButton from '@/components/ui/MagneticButton';
+
+const ParticleField = dynamic(() => import('@/components/3d/ParticleField'), { ssr: false });
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -63,11 +68,14 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative py-16 px-4 sm:px-6 lg:px-8 bg-gray-950 overflow-hidden">
+    <section id="contact" className="relative py-16 px-4 sm:px-6 lg:px-8 bg-black overflow-hidden">
       {/* Darker decorative elements */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-0 left-20 w-32 h-32 bg-purple-900 rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-0 right-20 w-40 h-40 bg-pink-900 rounded-full filter blur-3xl"></div>
+        <div className="absolute top-0 left-20 w-32 h-32 bg-orange-900 rounded-full filter blur-3xl"></div>
+        <div className="absolute bottom-0 right-20 w-40 h-40 bg-orange-800 rounded-full filter blur-3xl"></div>
+      </div>
+      <div className="absolute inset-0 opacity-50">
+        <ParticleField color="#f97316" count={40} />
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
@@ -79,13 +87,13 @@ const Contact = () => {
           variants={fadeInUp}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-600 mb-4">
-            Get In Touch
+          <h2 className="font-display text-4xl sm:text-5xl font-bold mb-4">
+            <SplitText text="Get In Touch" className="inline-block text-gradient" />
           </h2>
           <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto">
             Have a project in mind or want to connect? I'd love to hear from you!
           </p>
-          <div className="w-20 h-1 bg-gradient-to-r from-purple-600 to-pink-600 mx-auto mt-6"></div>
+          <div className="w-20 h-1 bg-orange-500 mx-auto mt-6"></div>
         </motion.div>
 
         <div className="flex flex-col lg:flex-row gap-12">
@@ -95,11 +103,11 @@ const Contact = () => {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="flex-1 bg-gray-900/80 backdrop-blur-sm rounded-xl p-8 border border-gray-800 shadow-lg"
+            className="flex-1 bg-neutral-900/80 backdrop-blur-sm rounded-xl p-8 border border-neutral-800 shadow-lg"
           >
             <form onSubmit={handleSubmit}>
               <div className="mb-6">
-                <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-2">Your Name</label>
+                <label htmlFor="name" className="block text-sm font-medium text-neutral-400 mb-2">Your Name</label>
                 <input
                   type="text"
                   id="name"
@@ -107,13 +115,13 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                   placeholder="Enter your name"
                 />
               </div>
 
               <div className="mb-6">
-                <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
+                <label htmlFor="email" className="block text-sm font-medium text-neutral-400 mb-2">Email Address</label>
                 <input
                   type="email"
                   id="email"
@@ -121,35 +129,34 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                   placeholder="your.email@example.com"
                 />
               </div>
 
               <div className="mb-6">
-                <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-2">Your Message</label>
+                <label htmlFor="message" className="block text-sm font-medium text-neutral-400 mb-2">Your Message</label>
                 <textarea
                   id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                   rows={5}
                   placeholder="How can I help you?"
                 />
               </div>
 
               <div className="space-y-2">
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                <MagneticButton
+                  as="button"
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-purple-700 to-pink-700 text-white py-3 px-6 rounded-lg font-medium hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-lg disabled:opacity-70"
+                  className="block w-full bg-orange-500 text-black py-3 px-6 rounded-lg font-semibold hover:bg-orange-400 transition-all duration-300 shadow-lg disabled:opacity-70"
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
-                </motion.button>
+                </MagneticButton>
 
                 {submitStatus === 'success' && (
                   <p className="text-sm text-green-400 text-center">
@@ -176,11 +183,11 @@ const Contact = () => {
             <motion.div variants={fadeInUp} className="mb-8">
               <h3 className="text-2xl font-semibold text-white mb-4">Contact Information</h3>
               <p className="text-gray-400 mb-6">Feel free to reach out through any of these channels:</p>
-              
+
               <div className="space-y-4">
                 <div className="flex items-center">
-                  <FaEnvelope className="text-xl text-purple-400 mr-4" />
-                  <a href="mailto:your.email@example.com" className="text-gray-300 hover:text-purple-400 transition-colors">
+                  <FaEnvelope className="text-xl text-orange-500 mr-4" />
+                  <a href="mailto:abdulraheem123124@gmail.com" data-cursor="link" className="text-gray-300 hover:text-orange-500 transition-colors">
                     abdulraheem123124@gmail.com
                   </a>
                 </div>
@@ -190,14 +197,15 @@ const Contact = () => {
             <motion.div variants={fadeInUp}>
               <h3 className="text-2xl font-semibold text-white mb-4">Connect With Me</h3>
               <p className="text-gray-400 mb-6">Follow me on social media:</p>
-              
+
               <div className="flex space-x-6">
                 <motion.a
                   whileHover={{ y: -3 }}
                   href="https://github.com/AbdulRaheem-CS"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-3xl text-gray-400 hover:text-purple-400 transition-colors"
+                  data-cursor="link"
+                  className="text-3xl text-gray-400 hover:text-orange-500 transition-colors"
                   aria-label="GitHub"
                 >
                   <FaGithub />
@@ -207,7 +215,8 @@ const Contact = () => {
                   href="https://www.linkedin.com/in/abdul-raheem-876b6a255/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-3xl text-gray-400 hover:text-blue-400 transition-colors"
+                  data-cursor="link"
+                  className="text-3xl text-gray-400 hover:text-orange-500 transition-colors"
                   aria-label="LinkedIn"
                 >
                   <FaLinkedin />
@@ -217,7 +226,8 @@ const Contact = () => {
                   href="https://twitter.com/yourusername"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-3xl text-gray-400 hover:text-blue-400 transition-colors"
+                  data-cursor="link"
+                  className="text-3xl text-gray-400 hover:text-orange-500 transition-colors"
                   aria-label="Twitter"
                 >
                   <FaTwitter />
@@ -227,7 +237,8 @@ const Contact = () => {
                   href="https://leetcode.com/yourusername/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-3xl text-gray-400 hover:text-yellow-400 transition-colors"
+                  data-cursor="link"
+                  className="text-3xl text-gray-400 hover:text-orange-500 transition-colors"
                   aria-label="LeetCode"
                 >
                   <SiLeetcode />
