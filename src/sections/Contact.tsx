@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaWhatsapp, FaPhone } from 'react-icons/fa';
 import { SiLeetcode } from 'react-icons/si';
 import SplitText from '@/components/ui/SplitText';
 import MagneticButton from '@/components/ui/MagneticButton';
@@ -221,27 +221,27 @@ const Contact = () => {
                 >
                   <FaLinkedin />
                 </motion.a>
-                <motion.a
+                 <motion.a
                   whileHover={{ y: -3 }}
-                  href="https://twitter.com/yourusername"
+                  href="https://wa.me/923483059852"
                   target="_blank"
                   rel="noopener noreferrer"
                   data-cursor="link"
                   className="text-3xl text-gray-400 hover:text-orange-500 transition-colors"
-                  aria-label="Twitter"
+                  aria-label="WhatsApp"
                 >
-                  <FaTwitter />
+                  <FaWhatsapp />
                 </motion.a>
-                <motion.a
+                 <motion.a
                   whileHover={{ y: -3 }}
-                  href="https://leetcode.com/yourusername/"
+                  href="tel:+923483059852"
                   target="_blank"
                   rel="noopener noreferrer"
                   data-cursor="link"
                   className="text-3xl text-gray-400 hover:text-orange-500 transition-colors"
-                  aria-label="LeetCode"
+                  aria-label="Phone"
                 >
-                  <SiLeetcode />
+                  <FaPhone />
                 </motion.a>
               </div>
             </motion.div>

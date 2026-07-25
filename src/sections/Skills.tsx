@@ -1,7 +1,32 @@
 import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
-import { FaJsSquare, FaReact, FaNodeJs, FaGithub, FaDatabase, FaCss3Alt, FaHtml5, FaFigma } from 'react-icons/fa';
-import { SiTypescript, SiTailwindcss, SiNextdotjs, SiGraphql } from 'react-icons/si';
+import {
+  FaJsSquare,
+  FaReact,
+  FaNodeJs,
+  FaGithub,
+  FaDatabase,
+  FaCss3Alt,
+  FaHtml5,
+  FaFigma,
+  FaGitAlt,
+  FaAws,
+} from 'react-icons/fa';
+import {
+  SiTypescript,
+  SiTailwindcss,
+  SiNextdotjs,
+  SiGraphql,
+  SiExpress,
+  SiPostgresql,
+  SiRedux,
+  SiDocker,
+  SiRedis,
+  SiPostman,
+  SiPrisma,
+  SiJest,
+  SiVercel,
+} from 'react-icons/si';
 import TiltCard from '@/components/ui/TiltCard';
 import SplitText from '@/components/ui/SplitText';
 
@@ -18,24 +43,55 @@ const Skills = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
+        staggerChildren: 0.08
       }
     }
   };
 
-  const skills = [
-    { icon: <FaJsSquare className="text-4xl" />, name: "JavaScript", color: "text-yellow-400" },
-    { icon: <SiTypescript className="text-4xl" />, name: "TypeScript", color: "text-blue-500" },
-    { icon: <FaReact className="text-4xl" />, name: "React", color: "text-blue-400" },
-    { icon: <SiNextdotjs className="text-4xl" />, name: "Next.js", color: "text-white" },
-    { icon: <FaNodeJs className="text-4xl" />, name: "Node.js", color: "text-green-500" },
-    { icon: <FaDatabase className="text-4xl" />, name: "MongoDB", color: "text-green-400" },
-    { icon: <SiGraphql className="text-4xl" />, name: "GraphQL", color: "text-pink-500" },
-    { icon: <FaHtml5 className="text-4xl" />, name: "HTML5", color: "text-orange-500" },
-    { icon: <FaCss3Alt className="text-4xl" />, name: "CSS3", color: "text-blue-500" },
-    { icon: <SiTailwindcss className="text-4xl" />, name: "Tailwind CSS", color: "text-blue-400" },
-    { icon: <FaGithub className="text-4xl" />, name: "GitHub", color: "text-gray-300" },
-    { icon: <FaFigma className="text-4xl" />, name: "Figma", color: "text-purple-500" }
+  const skillGroups = [
+    {
+      label: 'Frontend',
+      skills: [
+        { icon: <FaJsSquare className="text-4xl" />, name: "JavaScript" },
+        { icon: <SiTypescript className="text-4xl" />, name: "TypeScript" },
+        { icon: <FaReact className="text-4xl" />, name: "React" },
+        { icon: <SiNextdotjs className="text-4xl" />, name: "Next.js" },
+        { icon: <SiRedux className="text-4xl" />, name: "Redux" },
+        { icon: <FaHtml5 className="text-4xl" />, name: "HTML5" },
+        { icon: <FaCss3Alt className="text-4xl" />, name: "CSS3" },
+        { icon: <SiTailwindcss className="text-4xl" />, name: "Tailwind CSS" },
+      ],
+    },
+    {
+      label: 'Backend',
+      skills: [
+        { icon: <FaNodeJs className="text-4xl" />, name: "Node.js" },
+        { icon: <SiExpress className="text-4xl" />, name: "Express.js" },
+        { icon: <SiGraphql className="text-4xl" />, name: "GraphQL" },
+        { icon: <SiPrisma className="text-4xl" />, name: "Prisma" },
+      ],
+    },
+    {
+      label: 'Database',
+      skills: [
+        { icon: <FaDatabase className="text-4xl" />, name: "MongoDB" },
+        { icon: <SiPostgresql className="text-4xl" />, name: "PostgreSQL" },
+        { icon: <SiRedis className="text-4xl" />, name: "Redis" },
+      ],
+    },
+    {
+      label: 'DevOps & Tools',
+      skills: [
+        { icon: <SiDocker className="text-4xl" />, name: "Docker" },
+        { icon: <FaAws className="text-4xl" />, name: "AWS" },
+        { icon: <SiVercel className="text-4xl" />, name: "Vercel" },
+        { icon: <FaGitAlt className="text-4xl" />, name: "Git" },
+        { icon: <FaGithub className="text-4xl" />, name: "GitHub" },
+        { icon: <SiPostman className="text-4xl" />, name: "Postman" },
+        { icon: <SiJest className="text-4xl" />, name: "Jest" },
+        { icon: <FaFigma className="text-4xl" />, name: "Figma" },
+      ],
+    },
   ];
 
   return (
@@ -67,36 +123,62 @@ const Skills = () => {
           <div className="w-20 h-1 bg-orange-500 mx-auto mt-6"></div>
         </motion.div>
 
-        {/* Skills Grid */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={staggerContainer}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
-        >
-          {skills.map((skill, index) => (
-            <motion.div key={index} variants={fadeInUp}>
-              <TiltCard
-                intensity={14}
-                className="group relative bg-neutral-900/60 backdrop-blur-sm rounded-xl overflow-hidden border border-neutral-800 p-6 flex flex-col items-center shadow-lg hover:shadow-xl hover:border-orange-500/40 transition-[border-color,box-shadow] duration-300"
+        {/* Skills Groups */}
+        <div className="space-y-12">
+          {skillGroups.map((group) => (
+            <div key={group.label}>
+              <motion.h3
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="flex items-center gap-3 text-sm font-semibold uppercase tracking-wider text-orange-500 mb-5"
               >
-                <div
-                  style={{ transform: 'translateZ(30px)' }}
-                  className={`${skill.color} mb-4 transition-colors duration-300`}
-                >
-                  {skill.icon}
-                </div>
-                <h3
-                  style={{ transform: 'translateZ(20px)' }}
-                  className="text-lg font-semibold text-white group-hover:text-orange-500 transition-colors duration-300"
-                >
-                  {skill.name}
-                </h3>
-              </TiltCard>
-            </motion.div>
+                <span className="h-px w-6 bg-orange-500" />
+                {group.label}
+              </motion.h3>
+
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={staggerContainer}
+                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
+              >
+                {group.skills.map((skill) => (
+                  <motion.div key={skill.name} variants={fadeInUp}>
+                    <TiltCard
+                      intensity={14}
+                      className="group relative bg-gradient-to-b from-neutral-900 to-neutral-900/40 backdrop-blur-sm rounded-xl overflow-hidden border border-neutral-800 p-6 flex flex-col items-center shadow-lg hover:shadow-xl hover:shadow-orange-950/30 hover:border-orange-500/40 transition-[border-color,box-shadow] duration-300"
+                    >
+                      {/* Diagonal shine sweep */}
+                      <span
+                        aria-hidden="true"
+                        className="pointer-events-none absolute inset-0 -translate-x-full skew-x-12 bg-gradient-to-r from-transparent via-white/[0.06] to-transparent group-hover:translate-x-full transition-transform duration-700 ease-out"
+                      />
+
+                      <div
+                        style={{ transform: 'translateZ(30px)' }}
+                        className="relative mb-4"
+                      >
+                        <span className="absolute inset-0 -m-3 rounded-full bg-orange-500/0 group-hover:bg-orange-500/20 blur-lg transition-colors duration-500" />
+                        <span className="relative block text-neutral-500 group-hover:text-orange-500 group-hover:scale-110 transition-all duration-300">
+                          {skill.icon}
+                        </span>
+                      </div>
+                      <h3
+                        style={{ transform: 'translateZ(20px)' }}
+                        className="relative text-lg font-semibold text-neutral-200 group-hover:text-white transition-colors duration-300"
+                      >
+                        {skill.name}
+                      </h3>
+                    </TiltCard>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

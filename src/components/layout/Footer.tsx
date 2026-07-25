@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaArrowUp } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaArrowUp, FaWhatsapp, FaPhone } from 'react-icons/fa';
 import MagneticButton from '@/components/ui/MagneticButton';
 
 const fadeInUp = {
@@ -113,13 +113,23 @@ const Footer = () => {
               </MagneticButton>
               <MagneticButton
                 as="a"
-                href="https://twitter.com/yourusername"
+                href="https://wa.me/923483059852"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-neutral-400 hover:text-orange-500 transition duration-300"
-                aria-label="Twitter"
+                aria-label="WhatsApp"
               >
-                <FaTwitter className="text-xl" />
+                <FaWhatsapp className="text-xl" />
+              </MagneticButton>
+              <MagneticButton
+                as="a"
+                href="tel:+923483059852"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-neutral-400 hover:text-orange-500 transition duration-300"
+                aria-label="Phone"
+              >
+                <FaPhone className="text-xl" />
               </MagneticButton>
             </div>
           </motion.div>
