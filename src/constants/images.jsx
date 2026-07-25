@@ -2,7 +2,7 @@
 export const IMAGES = {
   kmjewelers: '/images/kmjewelers.png',
   batch: '/images/batch.png',
-  talentiq: '/images/talentiq.png',
+  talentiq: '/images/talentIQ.png',
   herosection: '/images/hero-section.jpg',
   heros: '/images/hero.jpg',
   profile: '/images/myprofile.jpg',
