@@ -53,7 +53,7 @@ const Footer = () => {
           {/* Brand Section */}
           <motion.div variants={fadeInUp} className="space-y-3">
             <h3 className="text-lg font-bold text-white font-display">
-              ABDULRAHEEM <span className="text-orange-500">.</span>
+              DEV_RAHEEM <span className="text-orange-500">.</span>
             </h3>
             <p className="text-sm text-neutral-400 max-w-xs">
               Full Stack Developer crafting digital experiences that inspire and deliver results.

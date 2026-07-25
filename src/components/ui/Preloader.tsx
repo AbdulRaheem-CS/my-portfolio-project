@@ -41,7 +41,7 @@ const Preloader = () => {
             transition={{ duration: 0.6 }}
             className="text-3xl sm:text-4xl font-bold tracking-tight text-gradient font-display"
           >
-            ABDULRAHEEM
+            DEV_RAHEEM
           </motion.div>
           <motion.div
             initial={{ width: 0 }}
